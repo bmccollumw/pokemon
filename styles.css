@@ -1,0 +1,20 @@
+h1 {
+	font-family: 
+}
+
+body {
+	text-align: center;
+}
+
+ul {
+	text-align: center;
+	list-style-type: none;
+}
+
+li {
+	text-decoration: none;
+}
+
+.container {
+	padding-top: 200px;
+}

@@ -9,10 +9,7 @@ btn.click(function() { // .click event listener
 	
 	//console.log(name);
 	var url = 'http://pokeapi.co/api/v2/pokemon/' + pokemonName; //concatinating adding name to end of URL
-	var xhr = $.get(url, function(data) { //jquery shorthhand of ajax request (just getting from api) , callback function -- whatever happens
-		if(!data.types) {
-		$('ul').append('<li>' + 'Make sure the pokemon name is spelled correctly, and everything is lowercase' + '</li>');
-	}
+	$.get(url, function(data) { //jquery shorthhand of ajax request (just getting from api) , callback function -- whatever happens
 		emptyList(); // calling empy list from begginninh
 		//console.log(data); WE HAVE GOTTEN A RESPONSE
 		var types = data.types;  //an array of objects of all of the types of pokemon dot notation referrenciing the property of data object
@@ -22,5 +19,9 @@ btn.click(function() { // .click event listener
 			//console.log(typeName);
 			$('ul').append('<li>' + typeName + '</li>'); //displaying the typeName
 		}
+	})
+	.fail(function() {
+		emptyList(); // calling empy list from begginninh
+		$('ul').append('<li>Make sure the pokemon name is spelled correctly, and everything is lowercase.</li>');
 	});
 });
